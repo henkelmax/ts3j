@@ -8,7 +8,6 @@ import Punisher.NaCl.Internal.Sha512;
 import com.github.manevolent.ts3j.identity.*;
 import com.github.manevolent.ts3j.license.License;
 import org.bouncycastle.asn1.*;
-import org.bouncycastle.crypto.KeyGenerationParameters;
 import org.bouncycastle.crypto.digests.SHA256Digest;
 import org.bouncycastle.crypto.params.ECDomainParameters;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
@@ -258,9 +257,9 @@ public final class Ts3Crypt {
         try {
             byte[] dataArray = new DERSequence(new ASN1Encodable[]{
                     new DERBitString(new byte[]{0b0000_0000}, 7),
-                    new DERInteger(32),
-                    new DERInteger(publicKey.getAffineXCoord().toBigInteger()),
-                    new DERInteger(publicKey.getAffineYCoord().toBigInteger())
+                    new ASN1Integer(32),
+                    new ASN1Integer(publicKey.getAffineXCoord().toBigInteger()),
+                    new ASN1Integer(publicKey.getAffineYCoord().toBigInteger())
             }).getEncoded();
 
             return dataArray;

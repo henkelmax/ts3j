@@ -1,10 +1,12 @@
 package com.github.manevolent.ts3j.protocol;
 
-import org.xbill.DNS.*;
+import org.xbill.DNS.Lookup;
+import org.xbill.DNS.Record;
+import org.xbill.DNS.SRVRecord;
+import org.xbill.DNS.Type;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.net.SocketAddress;
 import java.net.UnknownHostException;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -19,7 +21,7 @@ public class TS3DNS {
     private static final String DNS_PREFIX_UDP = "_ts3._udp.";
 
     private static List<InetSocketAddress> lookupSRV(String domain) throws IOException {
-        org.xbill.DNS.Record[] records = new Lookup(domain, Type.SRV).run();
+        Record[] records = new Lookup(domain, Type.SRV).run();
 
         if (records == null || records.length <= 0) throw new UnknownHostException("Host not found");
 

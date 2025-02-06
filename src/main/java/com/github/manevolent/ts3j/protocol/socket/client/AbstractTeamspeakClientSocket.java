@@ -24,7 +24,7 @@ import com.github.manevolent.ts3j.util.QuickLZ;
 import com.github.manevolent.ts3j.util.Ts3Crypt;
 import com.github.manevolent.ts3j.util.Ts3Debugging;
 import com.github.manevolent.ts3j.util.Pair;
-import org.apache.commons.lang.reflect.ConstructorUtils;
+import org.apache.commons.lang3.reflect.ConstructorUtils;
 import org.bouncycastle.crypto.InvalidCipherTextException;
 
 import java.io.EOFException;
